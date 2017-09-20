@@ -1,0 +1,90 @@
+package Work;
+
+import java.util.Scanner;
+
+public class Demo {
+	static int count;
+	
+	static int vowel(String S)
+	{
+		int count1=0;
+		//char arr[]=new char[S.length()];
+		
+		for(int i=0;i<S.length();i++)
+		{
+			switch(S.substring(i,i+1))
+			{
+			case "a":count1++;
+			break;
+			case "e":count1++;
+			break;
+			case "i":count1++;
+			break;
+			case "o":count1++;
+			break;
+			case "u":count1++;
+			break;
+			default:
+				
+			}
+		}
+		
+		return count1;
+	}
+	
+	static int CountVowel(String S,int K)
+	  {
+		int l=S.length();
+		
+		for(int i=0;i<l;i++)
+		{int flag=0;
+			String arr[]=new String[l];
+			for(int j=1;j<=l-i;j++)
+			{
+				
+				arr[j-1]=S.substring(j-1,j+i);
+				//System.out.println(arr[j-1]);
+				if((vowel(arr[j-1]))>K)
+				{
+					flag=1;
+					break;
+				}
+					
+				
+			}
+			
+			
+			if(flag==0)
+				count++;
+			
+			
+		}
+		return count;
+		  
+	  }
+	public static void main(String args[])
+	{
+		 
+	   Scanner scan=new Scanner(System.in);
+	   int t=scan.nextInt();
+	   
+	   
+	  while(t>0)
+	  {
+		  count=0;
+		  //System.out.println("t="+t);
+		  String S= scan.next();
+		   
+		int K=scan.nextInt();
+		   
+		   K=CountVowel(S,K);
+		  System.out.println(K);
+		   t--;
+		   
+	   }
+	 
+	
+	  
+	  
+	}
+}
