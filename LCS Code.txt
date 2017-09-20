@@ -1,0 +1,39 @@
+package Work;
+import java.lang.String;
+import java.util.Scanner;
+
+class Sample
+{
+	static String x;
+	static String y;
+	public static void main(String args[])
+	{
+		
+	Scanner scan=new Scanner(System.in);
+	x=scan.next();
+	y= scan.next();
+	//System.out.println(x.charAt(x.length()-1));
+	System.out.println(LCS(x.length(),y.length()));
+		
+		
+		
+		
+	}
+	
+	static int max(int M,int N)
+	{
+		
+			return M>N?M:N;
+	}
+	
+	static int LCS(int M,int N)
+	{
+		if(M==0||N==0)
+			return 0;
+		if(x.charAt(M-1)==y.charAt(N-1))
+			return 1+LCS(M-1,N-1);
+		else
+			return max(LCS(M,N-1),LCS(M-1,N));
+	
+	}
+}
